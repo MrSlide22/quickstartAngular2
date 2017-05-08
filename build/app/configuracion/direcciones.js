@@ -3,6 +3,9 @@ var core_1 = require("@angular/core");
 exports.Direcciones = new core_1.OpaqueToken('Direcciones');
 exports.ProveedorDirecciones = {
     provide: exports.Direcciones,
-    useValue: 'http://localhost:3004'
+    useValue: {
+        servidor: 'http://localhost:3004',
+        fakerAvatar: 'http://faker.hook.io/?property=image.avatar'
+    }
 };
 //# sourceMappingURL=direcciones.js.map

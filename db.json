@@ -79,6 +79,26 @@
       "facebook": "asdfghj",
       "avatar": "",
       "id": 8
+    },
+    {
+      "nombre": "tyui",
+      "apellidos": "tyuio",
+      "email": "tyuio@yuiop.com",
+      "telefono": "123456789",
+      "twitter": "tyuiop",
+      "facebook": "sdfghjkl",
+      "avatar": "",
+      "id": 9
+    },
+    {
+      "nombre": "asdf",
+      "apellidos": "asdf",
+      "email": "adfg@asgfd.com",
+      "telefono": "123456789",
+      "twitter": "afd",
+      "facebook": "adfg",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/itolmach/128.jpg\n",
+      "id": 10
     }
   ]
 }

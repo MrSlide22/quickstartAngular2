@@ -1,4 +1,7 @@
 <form #contactoForm="ngForm" (ngSubmit)="guardarContacto(contactoForm)" novalidate>
+    <div class="avatar">
+        <img [src]="rutaAvatar" alt="avatar">
+    </div>
     <div>
         <label for="nombre">Nombre</label>
         <input ngModel #nombreRef="ngModel" class="u-full-width" id="nombre" type="text" name="nombre" placeholder="Ej. Tim" required>

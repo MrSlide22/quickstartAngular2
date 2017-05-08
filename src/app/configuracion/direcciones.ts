@@ -3,5 +3,8 @@ import { OpaqueToken, Provider } from "@angular/core";
 export const Direcciones: OpaqueToken = new OpaqueToken('Direcciones');
 export const ProveedorDirecciones: Provider = {
         provide: Direcciones,
-        useValue: 'http://localhost:3004'
+        useValue: {
+            servidor: 'http://localhost:3004',
+            fakerAvatar: 'http://faker.hook.io/?property=image.avatar'
+        }
 };

@@ -23,7 +23,7 @@ var ContactosService = (function () {
     }
     ContactosService.prototype.obtenerContactos = function () {
         return this._http
-            .get(this._direcciones + "/contactos")
+            .get(this._direcciones.servidor + "/contactos")
             .map(function (res) {
             var lista = res.json();
             return lista.map(function (elemento) {
@@ -33,25 +33,34 @@ var ContactosService = (function () {
     };
     ContactosService.prototype.guardarContacto = function (contacto) {
         return this._http
-            .post(this._direcciones + "/contactos", contacto)
+            .post(this._direcciones.servidor + "/contactos", contacto)
             .map(function (res) { return contacto_1.Contacto.jsonToContacto(res.json()); });
     };
     ContactosService.prototype.eliminarContacto = function (contacto) {
         return this._http
-            .delete(this._direcciones + "/contactos/" + contacto.id)
+            .delete(this._direcciones.servidor + "/contactos/" + contacto.id)
             .map(function (res) { return contacto_1.Contacto.jsonToContacto(res.json()); });
     };
     ContactosService.prototype.editarContacto = function (contacto) {
         return this._http
-            .put(this._direcciones + "/contactos/" + contacto.id, contacto)
+            .put(this._direcciones.servidor + "/contactos/" + contacto.id, contacto)
             .map(function (res) { return contacto_1.Contacto.jsonToContacto(res.json()); });
+    };
+    ContactosService.prototype.generarRutaAvatar = function () {
+        // http://faker.hook.io/?property=image.avatar
+        return this._http
+            .get(this._direcciones.fakerAvatar)
+            .map(function (res) {
+            var rutaAvatar = res.text().replace(new RegExp('\"', 'g'), '');
+            return rutaAvatar;
+        });
     };
     return ContactosService;
 }());
 ContactosService = __decorate([
     core_1.Injectable(),
     __param(1, core_1.Inject(direcciones_1.Direcciones)),
-    __metadata("design:paramtypes", [http_1.Http, String])
+    __metadata("design:paramtypes", [http_1.Http, Object])
 ], ContactosService);
 exports.ContactosService = ContactosService;
 //# sourceMappingURL=contactos.service.js.map

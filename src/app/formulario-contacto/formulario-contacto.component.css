@@ -53,3 +53,13 @@ input.ng-touched.ng-invalid+.input-check:before {
     margin-bottom: 10px;
     color: #ff5353;
 }
+
+.avatar {
+    text-align: center;
+}
+
+.avatar img {
+    border-radius: 10px;
+    height: 128px;
+    width: 128px;
+}
