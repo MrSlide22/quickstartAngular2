@@ -1,0 +1,15 @@
+<div *ngIf="contacto">
+    <header>
+        <img [src]="contacto?.avatar" alt="avatar">
+        <h5>{{contacto?.nombre}} {{contacto?.apellidos}}</h5>
+    </header>
+    <hr>
+
+    <ul>
+        <li><span class="fa fa-envelope"></span> {{contacto?.email}}</li>
+        <li><span class="fa fa-phone"></span> {{contacto?.telefono}}</li>
+    </ul>
+
+    <button type="button" class="fa fa-facebook" (click)="notificarFacebook()"></button>
+    <button type="button" class="fa fa-twitter" (click)="notificarTwitter()"></button>
+</div>

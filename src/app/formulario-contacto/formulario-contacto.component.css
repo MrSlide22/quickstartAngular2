@@ -1,0 +1,55 @@
+button {
+    transition: background-color 0.5s, border-color 0.5s;
+}
+
+button:disabled {
+    background-color: lightgray;
+    border-color: white;
+}
+
+input {
+    padding-right: 30px;
+}
+
+input.ng-touched.ng-invalid {
+    border-color: #ff5353;
+}
+
+input.ng-touched.ng-valid {
+    border-color: #6dca48;
+}
+
+input+.input-check {
+    opacity: 0;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    transition: opacity 0.5s;
+    float: right;
+    margin-top: -40px;
+    margin-right: 10px;
+    position: relative;
+}
+
+input.ng-touched.ng-valid+.input-check {
+    opacity: 1;
+    color: #6dca48;
+}
+
+input.ng-touched.ng-valid+.input-check:before {
+    content: '\f00c';
+}
+
+input.ng-touched.ng-invalid+.input-check {
+    opacity: 1;
+    color: #ff5353;
+}
+
+input.ng-touched.ng-invalid+.input-check:before {
+    content: '\f00d';
+}
+
+.mensaje-error {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    color: #ff5353;
+}

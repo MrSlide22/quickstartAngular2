@@ -1,0 +1,52 @@
+<form #contactoForm="ngForm" (ngSubmit)="guardarContacto(contactoForm)" novalidate>
+    <div>
+        <label for="nombre">Nombre</label>
+        <input ngModel #nombreRef="ngModel" class="u-full-width" id="nombre" type="text" name="nombre" placeholder="Ej. Tim" required>
+        <span class="input-check fa"></span>
+        <p class="mensaje-error" *ngIf="nombreRef.touched && nombreRef.invalid && nombreRef.errors?.required">
+            El campo nombre es requerido
+        </p>
+    </div>
+    <div>
+        <label for="apellidos">Apellidos</label>
+        <input ngModel #apellidosRef="ngModel" class="u-full-width" id="apellidos" type="text" name="apellidos" placeholder="Ej. Hook" required>
+        <span class="input-check fa"></span>
+        <p class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.invalid && apellidosRef.errors?.required">
+            El campo email es requerido
+        </p>
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input ngModel #emailRef="ngModel" class="u-full-width" id="email" type="text" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$" name="email" placeholder="Ej. user@domain.com">
+        <span class="input-check fa"></span>
+        <p class="mensaje-error" *ngIf="emailRef.touched && emailRef.invalid && emailRef.errors?.pattern">
+            Email con formato no válido
+        </p>
+    </div>
+    <div>
+        <label for="telefono">Telefono</label>
+        <input ngModel #telefonoRef="ngModel" (keyup)="inputTelefonoFocus($event)" class="u-full-width" id="telefono" type="text" pattern="^\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$" name="telefono" placeholder="Ej. 000000000">
+        <span class="input-check fa"></span>
+        <p class="mensaje-error" *ngIf="telefonoRef.touched && telefonoRef.invalid && telefonoRef.errors?.required">
+            Telefono con formato no válido
+        </p>
+    </div>
+    <div>
+        <label for="facebook">Facebook</label>
+        <input ngModel #facebookRef="ngModel" class="u-full-width" id="facebook" type="text" name="facebook" placeholder="Ej. FacebookId">
+        <span class="input-check fa"></span>
+        <p class="mensaje-error" *ngIf="facebookRef.touched && facebookRef.invalid && facebookRef.errors?.required">
+            Hubo un error con el campo facebook
+        </p>
+    </div>
+    <div>
+        <label for="twitter">Twitter</label>
+        <input ngModel #twitterRef="ngModel" class="u-full-width" id="twitter" type="text" name="twitter" placeholder="Ej. TwitterId">
+        <span class="input-check fa"></span>
+        <p class="mensaje-error" *ngIf="twitterRef.touched && twitterRef.invalid && twitterRef.errors?.required">
+            Hubo un error con el campo twitter
+        </p>
+    </div>
+
+    <button type="submit" class="button-primary" [disabled]="contactoForm.invalid">Guardar</button>
+</form>

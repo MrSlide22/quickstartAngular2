@@ -1,0 +1,24 @@
+ul{
+    list-style: none;
+}
+
+li{
+    margin: 5px 0;
+    padding: 20px;
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+li:hover{
+    cursor: pointer;
+    color: #034266;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 10px #eee;
+}
+
+li span.arrow{
+    color: #034266;
+    font-size: 1.1em;
+}

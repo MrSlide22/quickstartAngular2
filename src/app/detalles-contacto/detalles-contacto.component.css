@@ -1,0 +1,22 @@
+div{
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 10px #eee;
+}
+
+header{
+    display: flex;
+    align-items: center;
+}
+
+h5{
+    margin: 0;
+    margin-left: 15px;
+}
+
+img{
+    border-radius: 50%;
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+}
