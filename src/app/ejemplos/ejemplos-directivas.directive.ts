@@ -13,12 +13,10 @@ export class EjemplosDirectivasAtributoDirective {
     @HostListener('mouseenter')
     cambiarEstilo(){
         this._renderer.setElementStyle(this._elementRef.nativeElement, 'color', 'red');
-        console.log('Estoy encima');
     }
 
     @HostListener('mouseleave')
     restaurarEstilo(){
         this._renderer.setElementStyle(this._elementRef.nativeElement, 'color', '');
-        console.log('Estoy encima');
     }
 }   

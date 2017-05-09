@@ -17,11 +17,9 @@ var EjemplosDirectivasAtributoDirective = (function () {
     ;
     EjemplosDirectivasAtributoDirective.prototype.cambiarEstilo = function () {
         this._renderer.setElementStyle(this._elementRef.nativeElement, 'color', 'red');
-        console.log('Estoy encima');
     };
     EjemplosDirectivasAtributoDirective.prototype.restaurarEstilo = function () {
         this._renderer.setElementStyle(this._elementRef.nativeElement, 'color', '');
-        console.log('Estoy encima');
     };
     return EjemplosDirectivasAtributoDirective;
 }());
