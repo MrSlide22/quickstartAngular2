@@ -11,12 +11,27 @@ export class EjemplosDirectivasAtributoDirective {
     ) { };
 
     @HostListener('mouseenter')
-    cambiarEstilo(){
-        this._renderer.setElementStyle(this._elementRef.nativeElement, 'color', 'red');
+    ponerEstilo() {
+        this.cambiarEstilo(true);
     }
 
     @HostListener('mouseleave')
-    restaurarEstilo(){
-        this._renderer.setElementStyle(this._elementRef.nativeElement, 'color', '');
+    quitarEstilo() {
+        this.cambiarEstilo(false);
+    }
+
+    cambiarEstilo(activo: boolean) {
+
+        this._renderer.setElementStyle(this._elementRef.nativeElement,
+            'font-weight', activo ? 'bold' : 'normal'
+        );
+
+        this._renderer.setElementStyle(this._elementRef.nativeElement,
+            'background-color', activo ? 'red' : 'white'
+        );
+
+        this._renderer.setElementStyle(this._elementRef.nativeElement,
+            'color', activo ? 'white' : 'black'
+        );
     }
 }   

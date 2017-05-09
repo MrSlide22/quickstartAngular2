@@ -15,11 +15,16 @@ var EjemplosDirectivasAtributoDirective = (function () {
         this._renderer = _renderer;
     }
     ;
-    EjemplosDirectivasAtributoDirective.prototype.cambiarEstilo = function () {
-        this._renderer.setElementStyle(this._elementRef.nativeElement, 'color', 'red');
+    EjemplosDirectivasAtributoDirective.prototype.ponerEstilo = function () {
+        this.cambiarEstilo(true);
     };
-    EjemplosDirectivasAtributoDirective.prototype.restaurarEstilo = function () {
-        this._renderer.setElementStyle(this._elementRef.nativeElement, 'color', '');
+    EjemplosDirectivasAtributoDirective.prototype.quitarEstilo = function () {
+        this.cambiarEstilo(false);
+    };
+    EjemplosDirectivasAtributoDirective.prototype.cambiarEstilo = function (activo) {
+        this._renderer.setElementStyle(this._elementRef.nativeElement, 'font-weight', activo ? 'bold' : 'normal');
+        this._renderer.setElementStyle(this._elementRef.nativeElement, 'background-color', activo ? 'red' : 'white');
+        this._renderer.setElementStyle(this._elementRef.nativeElement, 'color', activo ? 'white' : 'black');
     };
     return EjemplosDirectivasAtributoDirective;
 }());
@@ -28,13 +33,13 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], EjemplosDirectivasAtributoDirective.prototype, "cambiarEstilo", null);
+], EjemplosDirectivasAtributoDirective.prototype, "ponerEstilo", null);
 __decorate([
     core_1.HostListener('mouseleave'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], EjemplosDirectivasAtributoDirective.prototype, "restaurarEstilo", null);
+], EjemplosDirectivasAtributoDirective.prototype, "quitarEstilo", null);
 EjemplosDirectivasAtributoDirective = __decorate([
     core_1.Directive({
         selector: '[EjemplosDirectivasAtributo]'
