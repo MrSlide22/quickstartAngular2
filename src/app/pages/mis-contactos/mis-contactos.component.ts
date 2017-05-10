@@ -20,10 +20,6 @@ export class MisContactosComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        // this._contactosService.obtenerContactos()
-        //     .subscribe(contactos => {
-        //         this.listaContactos = contactos;
-        //     });
 
         this._activatedRoute.data.forEach((data: { contactos: Contacto[] }) => {
             this.listaContactos = data.contactos;
@@ -37,5 +33,22 @@ export class MisContactosComponent implements OnInit {
 
     navegarRuta(ruta: string) {
         window.open(ruta, '_blank');
+    }
+
+    eliminarContacto(contacto: Contacto) {
+        if (confirm(`¿Seguro que quieres eliminar a ${contacto.nombre} ${contacto.apellidos}?`)) {
+            this._contactosService.eliminarContacto(contacto)
+                .subscribe(() => {
+
+                    const index: number = this.listaContactos.findIndex((c: Contacto) => c.id === contacto.id);
+
+                    if (index !== -1) {
+                        this.listaContactos.splice(index, 1);
+                        this.contactoSeleccionado = null;
+                    }
+
+                });
+            console.log(contacto);
+        }
     }
 }

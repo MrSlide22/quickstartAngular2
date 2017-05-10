@@ -18,10 +18,6 @@ var MisContactosComponent = (function () {
         this.showDetails = false;
     }
     MisContactosComponent.prototype.ngOnInit = function () {
-        // this._contactosService.obtenerContactos()
-        //     .subscribe(contactos => {
-        //         this.listaContactos = contactos;
-        //     });
         var _this = this;
         this._activatedRoute.data.forEach(function (data) {
             _this.listaContactos = data.contactos;
@@ -33,6 +29,20 @@ var MisContactosComponent = (function () {
     };
     MisContactosComponent.prototype.navegarRuta = function (ruta) {
         window.open(ruta, '_blank');
+    };
+    MisContactosComponent.prototype.eliminarContacto = function (contacto) {
+        var _this = this;
+        if (confirm("\u00BFSeguro que quieres eliminar a " + contacto.nombre + " " + contacto.apellidos + "?")) {
+            this._contactosService.eliminarContacto(contacto)
+                .subscribe(function () {
+                var index = _this.listaContactos.findIndex(function (c) { return c.id === contacto.id; });
+                if (index !== -1) {
+                    _this.listaContactos.splice(index, 1);
+                    _this.contactoSeleccionado = null;
+                }
+            });
+            console.log(contacto);
+        }
     };
     return MisContactosComponent;
 }());

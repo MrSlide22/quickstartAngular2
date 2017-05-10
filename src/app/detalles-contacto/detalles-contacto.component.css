@@ -19,3 +19,9 @@ img {
     height: 128px;
     width: 128px;
 }
+
+.danger {
+    background-color: #c52d2d;
+    color: #fff;
+    font-weight: normal;
+}
